@@ -1,0 +1,1695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Structures & Algorithms — Interactive Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Syne:wght@400;600;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="ds.css">
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<nav id="sidebar">
+  <div class="sidebar-header">
+    <h1>DSA Guide</h1>
+    <p>Interactive Learning</p>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-section-title">Unit I — Fundamentals</div>
+    <button class="nav-item active" onclick="showSection('intro')">📖 Introduction to DSA</button>
+    <button class="nav-item" onclick="showSection('complexity')">⏱ Complexity Analysis</button>
+    <button class="nav-item" onclick="showSection('arrays')">📊 Arrays & ADT</button>
+    <button class="nav-item" onclick="showSection('polynomial')">🔢 Polynomials</button>
+    <button class="nav-item" onclick="showSection('sparse')">🌐 Sparse Matrix</button>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-section-title">Searching & Sorting</div>
+    <button class="nav-item" onclick="showSection('search')">🔍 Linear & Binary Search</button>
+    <button class="nav-item" onclick="showSection('sorting')">🔀 Sorting Algorithms</button>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-section-title">Unit II — Linear Structures</div>
+    <button class="nav-item" onclick="showSection('stacks')">📚 Stacks</button>
+    <button class="nav-item" onclick="showSection('stack-apps')">🔄 Stack Applications</button>
+    <button class="nav-item" onclick="showSection('queues')">🚶 Queues</button>
+    <button class="nav-item" onclick="showSection('queue-types')">🔃 Queue Variants</button>
+  </div>
+</nav>
+
+<!-- MAIN CONTENT -->
+<div id="main">
+
+<!-- TOP NAV -->
+<div class="section-nav">
+  <button class="snav-btn active" onclick="showSection('intro')">Intro</button>
+  <button class="snav-btn" onclick="showSection('complexity')">Complexity</button>
+  <button class="snav-btn" onclick="showSection('arrays')">Arrays</button>
+  <button class="snav-btn" onclick="showSection('search')">Search</button>
+  <button class="snav-btn" onclick="showSection('sorting')">Sorting</button>
+  <button class="snav-btn" onclick="showSection('stacks')">Stacks</button>
+  <button class="snav-btn" onclick="showSection('stack-apps')">Stack Apps</button>
+  <button class="snav-btn" onclick="showSection('queues')">Queues</button>
+  <button class="snav-btn" onclick="showSection('queue-types')">Queue Types</button>
+</div>
+
+<!-- ======================== INTRO ======================== -->
+<section id="intro" class="section active">
+  <div class="hero" style="margin:-60px -60px 40px; padding:60px;">
+    <div class="hero-tag">Unit I — Fundamentals</div>
+    <h2>Introduction to<br><span>Data Structures</span></h2>
+    <p>A complete interactive guide covering theory, pseudocode, and C++ implementations with live visualizations.</p>
+  </div>
+
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-icon">📦</div>
+      <h3>What is a Data Structure?</h3>
+      <p>A data structure is a way of organizing and storing data in a computer so that it can be accessed and modified efficiently.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">⚙️</div>
+      <h3>What is an Algorithm?</h3>
+      <p>A step-by-step procedure or set of rules for solving a specific problem. Algorithms manipulate data in data structures.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🔗</div>
+      <h3>Relationship: Data → DS → Algo</h3>
+      <p>Data is organized using Data Structures. Algorithms operate on these structures. Together they form efficient programs.</p>
+    </div>
+  </div>
+
+  <h3 style="font-family:'Syne',sans-serif; font-size:20px; margin:32px 0 16px;">Types of Data Structures</h3>
+  <div class="card-grid">
+    <div class="card" style="border-color:rgba(0,212,255,0.2)">
+      <div class="card-icon">📋</div>
+      <h3 style="color:var(--accent)">Primitive</h3>
+      <p>int, float, char, double — basic types directly supported by hardware/OS.</p>
+    </div>
+    <div class="card" style="border-color:rgba(124,58,237,0.2)">
+      <div class="card-icon">🔢</div>
+      <h3 style="color:#a78bfa">Linear (Non-Primitive)</h3>
+      <p>Elements arranged sequentially. Array, Stack, Queue, Linked List.</p>
+    </div>
+    <div class="card" style="border-color:rgba(16,185,129,0.2)">
+      <div class="card-icon">🌲</div>
+      <h3 style="color:var(--accent3)">Non-Linear</h3>
+      <p>Elements not in sequence. Trees, Graphs — hierarchical/network relationships.</p>
+    </div>
+    <div class="card" style="border-color:rgba(245,158,11,0.2)">
+      <div class="card-icon">📁</div>
+      <h3 style="color:var(--accent4)">File Structures</h3>
+      <p>Data stored in secondary memory. Sequential, Direct, Index-Sequential.</p>
+    </div>
+  </div>
+
+  <div class="highlight-box" style="margin-top:32px;">
+    <h4>🎯 Why Study Data Structures?</h4>
+    <ul>
+      <li>Efficient storage and retrieval of data</li>
+      <li>Foundation for designing efficient algorithms</li>
+      <li>Fundamental to software engineering and system design</li>
+      <li>Enables solving complex problems (compilers, OS, databases, AI)</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ======================== COMPLEXITY ======================== -->
+<section id="complexity" class="section">
+  <div class="section-badge badge-yellow">Analysis</div>
+  <h2>Algorithm Complexity</h2>
+  <p>Measuring how efficient an algorithm is in terms of time and space as input size grows.</p>
+
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-icon">⏱</div>
+      <h3>Time Complexity</h3>
+      <p>The amount of time taken by an algorithm as a function of input size <code style="color:var(--accent);font-family:'JetBrains Mono',monospace;">n</code>. Counts number of operations.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">💾</div>
+      <h3>Space Complexity</h3>
+      <p>The total amount of memory space required (including auxiliary space) as a function of input size.</p>
+    </div>
+  </div>
+
+  <h3 style="font-family:'Syne',sans-serif; font-size:20px; margin:32px 0 16px;">Asymptotic Notations</h3>
+  <div class="card-grid">
+    <div class="card" style="border-color:rgba(16,185,129,0.2)">
+      <h3 style="color:var(--accent3)">O (Big-O) — Upper Bound</h3>
+      <p>Worst-case scenario. f(n) = O(g(n)) means f grows no faster than g.</p>
+      <div style="margin-top:10px; font-family:'JetBrains Mono',monospace; font-size:13px; color:var(--accent3);">Example: O(n²) for bubble sort</div>
+    </div>
+    <div class="card" style="border-color:rgba(0,212,255,0.2)">
+      <h3 style="color:var(--accent)">Ω (Omega) — Lower Bound</h3>
+      <p>Best-case scenario. f(n) = Ω(g(n)) means f grows at least as fast as g.</p>
+      <div style="margin-top:10px; font-family:'JetBrains Mono',monospace; font-size:13px; color:var(--accent);">Example: Ω(n) for linear search</div>
+    </div>
+    <div class="card" style="border-color:rgba(124,58,237,0.2)">
+      <h3 style="color:#a78bfa">Θ (Theta) — Tight Bound</h3>
+      <p>Average-case. f(n) = Θ(g(n)) when both upper and lower bounds are g.</p>
+      <div style="margin-top:10px; font-family:'JetBrains Mono',monospace; font-size:13px; color:#a78bfa;">Example: Θ(n log n) for merge sort</div>
+    </div>
+  </div>
+
+  <h3 style="font-family:'Syne',sans-serif; font-size:20px; margin:32px 0 16px;">Complexity Hierarchy</h3>
+  <div style="background:var(--code-bg); border-radius:8px; padding:20px;">
+    <div style="display:flex; flex-direction:column; gap:8px;">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <span style="font-family:'JetBrains Mono',monospace; color:var(--accent3); width:110px; font-size:13px;">O(1)</span>
+        <div class="progress-bar" style="flex:1;"><div class="progress-fill" style="width:5%; background:var(--accent3);"></div></div>
+        <span style="font-size:12px; color:var(--text2);">Constant — Best</span>
+      </div>
+      <div style="display:flex; align-items:center; gap:12px;">
+        <span style="font-family:'JetBrains Mono',monospace; color:var(--accent3); width:110px; font-size:13px;">O(log n)</span>
+        <div class="progress-bar" style="flex:1;"><div class="progress-fill" style="width:15%;background:var(--accent3);"></div></div>
+        <span style="font-size:12px; color:var(--text2);">Logarithmic — Excellent</span>
+      </div>
+      <div style="display:flex; align-items:center; gap:12px;">
+        <span style="font-family:'JetBrains Mono',monospace; color:var(--accent); width:110px; font-size:13px;">O(n)</span>
+        <div class="progress-bar" style="flex:1;"><div class="progress-fill" style="width:30%;background:var(--accent);"></div></div>
+        <span style="font-size:12px; color:var(--text2);">Linear — Good</span>
+      </div>
+      <div style="display:flex; align-items:center; gap:12px;">
+        <span style="font-family:'JetBrains Mono',monospace; color:var(--accent4); width:110px; font-size:13px;">O(n log n)</span>
+        <div class="progress-bar" style="flex:1;"><div class="progress-fill" style="width:45%;background:var(--accent4);"></div></div>
+        <span style="font-size:12px; color:var(--text2);">Log-Linear — Fair</span>
+      </div>
+      <div style="display:flex; align-items:center; gap:12px;">
+        <span style="font-family:'JetBrains Mono',monospace; color:var(--accent4); width:110px; font-size:13px;">O(n²)</span>
+        <div class="progress-bar" style="flex:1;"><div class="progress-fill" style="width:65%;background:var(--accent4);"></div></div>
+        <span style="font-size:12px; color:var(--text2);">Quadratic — Poor</span>
+      </div>
+      <div style="display:flex; align-items:center; gap:12px;">
+        <span style="font-family:'JetBrains Mono',monospace; color:var(--accent5); width:110px; font-size:13px;">O(2ⁿ)</span>
+        <div class="progress-bar" style="flex:1;"><div class="progress-fill" style="width:90%;background:var(--accent5);"></div></div>
+        <span style="font-size:12px; color:var(--text2);">Exponential — Terrible</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== ARRAYS ======================== -->
+<section id="arrays" class="section">
+  <div class="section-badge badge-blue">Unit I</div>
+  <h2>Arrays & Array ADT</h2>
+  <p>Sequential organization of elements of the same type stored in contiguous memory locations.</p>
+
+  <div class="info-box">
+    <h4>📌 Key Properties</h4>
+    <p>Fixed size • Same data type • Random access O(1) • Contiguous memory • 0-based or 1-based indexing</p>
+  </div>
+
+  <div class="viz-box">
+    <div class="viz-title">🎮 Array Visualizer</div>
+    <div class="viz-controls">
+      <input class="viz-input" id="arr-val" type="number" placeholder="value" value="42">
+      <input class="viz-input" id="arr-idx" type="number" placeholder="index" value="0" min="0" max="9">
+      <button class="viz-btn primary" onclick="arrayInsert()">Insert</button>
+      <button class="viz-btn" onclick="arrayDelete()">Delete</button>
+      <button class="viz-btn" onclick="arrayAccess()">Access</button>
+      <button class="viz-btn" onclick="arrayReset()">Reset</button>
+    </div>
+    <div class="viz-area" id="array-viz" style="align-items:flex-end; padding-bottom:36px;">
+      <div class="array-cell" style="width:48px;height:48px;">12<span class="idx">0</span></div>
+      <div class="array-cell" style="width:48px;height:48px;">34<span class="idx">1</span></div>
+      <div class="array-cell" style="width:48px;height:48px;">56<span class="idx">2</span></div>
+      <div class="array-cell" style="width:48px;height:48px;">78<span class="idx">3</span></div>
+      <div class="array-cell" style="width:48px;height:48px;">90<span class="idx">4</span></div>
+    </div>
+    <div class="viz-msg" id="array-msg">Array initialized with 5 elements. Try inserting or accessing!</div>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab(this,'arr-tab','arr-theory')">Theory</button>
+    <button class="tab" onclick="switchTab(this,'arr-tab','arr-pseudo')">Pseudocode</button>
+    <button class="tab" onclick="switchTab(this,'arr-tab','arr-cpp')">C++ Code</button>
+  </div>
+  <div id="arr-tab">
+    <div id="arr-theory" class="tab-content active">
+      <div class="highlight-box">
+        <h4>Array ADT Operations</h4>
+        <ul>
+          <li><strong>Access:</strong> A[i] — O(1) direct access via base address + offset</li>
+          <li><strong>Insert:</strong> Shift elements right, then place — O(n) worst case</li>
+          <li><strong>Delete:</strong> Shift elements left after removal — O(n) worst case</li>
+          <li><strong>Search:</strong> Linear O(n) or Binary O(log n) if sorted</li>
+          <li><strong>Traverse:</strong> Visit each element — O(n)</li>
+        </ul>
+      </div>
+      <div class="info-box warning">
+        <h4>⚠️ Limitations</h4>
+        <p>Fixed size once declared, insertion/deletion O(n), wasted memory if underutilized.</p>
+      </div>
+    </div>
+    <div id="arr-pseudo" class="tab-content">
+      <div class="code-block">
+        <div class="code-header">
+          <div style="display:flex;align-items:center;gap:8px;"><div class="code-dots"><div class="code-dot dot-r"></div><div class="code-dot dot-y"></div><div class="code-dot dot-g"></div></div><span>Array ADT — Pseudocode</span></div>
+          <button class="copy-btn" onclick="copyCode(this)">copy</button>
+        </div>
+        <pre><span class="cm">// Array ADT Abstract Definition</span>
+<span class="tp">Array</span> A[MAX_SIZE]
+<span class="tp">int</span> n = current size
+
+<span class="cm">// ACCESS: Return element at index i</span>
+<span class="kw">FUNCTION</span> <span class="fn">Access</span>(A, i):
+  <span class="kw">IF</span> i < 0 OR i >= n: <span class="kw">return</span> ERROR
+  <span class="kw">return</span> A[i]
+
+<span class="cm">// INSERT: Add x at position pos</span>
+<span class="kw">FUNCTION</span> <span class="fn">Insert</span>(A, pos, x):
+  <span class="kw">IF</span> n == MAX_SIZE: <span class="kw">return</span> OVERFLOW
+  <span class="kw">FOR</span> i = n-1 <span class="kw">DOWNTO</span> pos:
+    A[i+1] = A[i]     <span class="cm">// shift right</span>
+  A[pos] = x
+  n = n + 1
+
+<span class="cm">// DELETE: Remove element at pos</span>
+<span class="kw">FUNCTION</span> <span class="fn">Delete</span>(A, pos):
+  <span class="kw">IF</span> n == 0: <span class="kw">return</span> UNDERFLOW
+  <span class="kw">FOR</span> i = pos <span class="kw">TO</span> n-2:
+    A[i] = A[i+1]     <span class="cm">// shift left</span>
+  n = n - 1</pre>
+      </div>
+    </div>
+    <div id="arr-cpp" class="tab-content">
+      <div class="code-block">
+        <div class="code-header">
+          <div style="display:flex;align-items:center;gap:8px;"><div class="code-dots"><div class="code-dot dot-r"></div><div class="code-dot dot-y"></div><div class="code-dot dot-g"></div></div><span>array_adt.cpp</span></div>
+          <button class="copy-btn" onclick="copyCode(this)">copy</button>
+        </div>
+        <pre><span class="kw">#include</span> <span class="str">&lt;iostream&gt;</span>
+<span class="kw">using namespace</span> std;
+
+<span class="kw">class</span> <span class="tp">ArrayADT</span> {
+    <span class="kw">int</span>* arr;
+    <span class="kw">int</span> maxSize, n;
+<span class="kw">public</span>:
+    <span class="fn">ArrayADT</span>(<span class="kw">int</span> size) {
+        maxSize = size;
+        arr = <span class="kw">new int</span>[size];
+        n = <span class="num">0</span>;
+    }
+
+    <span class="cm">// O(1) — direct access</span>
+    <span class="kw">int</span> <span class="fn">access</span>(<span class="kw">int</span> i) {
+        <span class="kw">if</span>(i < <span class="num">0</span> || i >= n) <span class="kw">throw</span> <span class="fn">runtime_error</span>(<span class="str">"Index out of bounds"</span>);
+        <span class="kw">return</span> arr[i];
+    }
+
+    <span class="cm">// O(n) — shift elements right</span>
+    <span class="kw">void</span> <span class="fn">insert</span>(<span class="kw">int</span> pos, <span class="kw">int</span> x) {
+        <span class="kw">if</span>(n == maxSize) { cout << <span class="str">"Overflow!\n"</span>; <span class="kw">return</span>; }
+        <span class="kw">for</span>(<span class="kw">int</span> i = n-<span class="num">1</span>; i >= pos; i--)
+            arr[i+<span class="num">1</span>] = arr[i];
+        arr[pos] = x;
+        n++;
+    }
+
+    <span class="cm">// O(n) — shift elements left</span>
+    <span class="kw">void</span> <span class="fn">remove</span>(<span class="kw">int</span> pos) {
+        <span class="kw">if</span>(n == <span class="num">0</span>) { cout << <span class="str">"Underflow!\n"</span>; <span class="kw">return</span>; }
+        <span class="kw">for</span>(<span class="kw">int</span> i = pos; i < n-<span class="num">1</span>; i++)
+            arr[i] = arr[i+<span class="num">1</span>];
+        n--;
+    }
+
+    <span class="kw">void</span> <span class="fn">display</span>() {
+        <span class="kw">for</span>(<span class="kw">int</span> i = <span class="num">0</span>; i < n; i++)
+            cout << arr[i] << <span class="str">" "</span>;
+        cout << endl;
+    }
+
+    ~<span class="fn">ArrayADT</span>() { <span class="kw">delete</span>[] arr; }
+};
+
+<span class="kw">int</span> <span class="fn">main</span>() {
+    <span class="tp">ArrayADT</span> a(<span class="num">10</span>);
+    a.<span class="fn">insert</span>(<span class="num">0</span>, <span class="num">10</span>); a.<span class="fn">insert</span>(<span class="num">1</span>, <span class="num">20</span>); a.<span class="fn">insert</span>(<span class="num">2</span>, <span class="num">30</span>);
+    a.<span class="fn">display</span>();    <span class="cm">// 10 20 30</span>
+    a.<span class="fn">remove</span>(<span class="num">1</span>);
+    a.<span class="fn">display</span>();    <span class="cm">// 10 30</span>
+    cout << a.<span class="fn">access</span>(<span class="num">0</span>) << endl; <span class="cm">// 10</span>
+}</pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== POLYNOMIAL ======================== -->
+<section id="polynomial" class="section">
+  <div class="section-badge badge-purple">Unit I</div>
+  <h2>Single Variable Polynomial</h2>
+  <p>Representing and manipulating polynomials like 3x³ + 2x² - 5x + 1 using arrays.</p>
+  <div class="info-box">
+    <h4>📐 Representation</h4>
+    <p>A polynomial of degree n is stored as array where index = exponent, value = coefficient. p[i] = coefficient of xⁱ</p>
+  </div>
+  <div class="code-block">
+    <div class="code-header"><div style="display:flex;align-items:center;gap:8px;"><div class="code-dots"><div class="code-dot dot-r"></div><div class="code-dot dot-y"></div><div class="code-dot dot-g"></div></div><span>polynomial.cpp</span></div><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
+    <pre><span class="kw">#include</span> <span class="str">&lt;iostream&gt;</span>
+<span class="kw">using namespace</span> std;
+
+<span class="kw">const int</span> MAX = <span class="num">10</span>;
+
+<span class="cm">// Evaluate polynomial using Horner's method: O(n)</span>
+<span class="kw">double</span> <span class="fn">evaluate</span>(<span class="kw">int</span> p[], <span class="kw">int</span> deg, <span class="kw">double</span> x) {
+    <span class="kw">double</span> result = p[deg];
+    <span class="kw">for</span>(<span class="kw">int</span> i = deg-<span class="num">1</span>; i >= <span class="num">0</span>; i--)
+        result = result * x + p[i];
+    <span class="kw">return</span> result;
+}
+
+<span class="cm">// Add two polynomials: O(max(m,n))</span>
+<span class="kw">void</span> <span class="fn">addPoly</span>(<span class="kw">int</span> a[], <span class="kw">int</span> da, <span class="kw">int</span> b[], <span class="kw">int</span> db, <span class="kw">int</span> c[]) {
+    <span class="kw">int</span> maxDeg = max(da, db);
+    <span class="kw">for</span>(<span class="kw">int</span> i = <span class="num">0</span>; i <= maxDeg; i++) {
+        <span class="kw">int</span> ca = (i <= da) ? a[i] : <span class="num">0</span>;
+        <span class="kw">int</span> cb = (i <= db) ? b[i] : <span class="num">0</span>;
+        c[i] = ca + cb;
+    }
+}
+
+<span class="cm">// Multiply two polynomials: O(m*n)</span>
+<span class="kw">void</span> <span class="fn">multiplyPoly</span>(<span class="kw">int</span> a[], <span class="kw">int</span> da, <span class="kw">int</span> b[], <span class="kw">int</span> db, <span class="kw">int</span> c[]) {
+    <span class="kw">int</span> dc = da + db;
+    <span class="kw">for</span>(<span class="kw">int</span> i = <span class="num">0</span>; i <= dc; i++) c[i] = <span class="num">0</span>;
+    <span class="kw">for</span>(<span class="kw">int</span> i = <span class="num">0</span>; i <= da; i++)
+        <span class="kw">for</span>(<span class="kw">int</span> j = <span class="num">0</span>; j <= db; j++)
+            c[i+j] += a[i] * b[j];
+}
+
+<span class="kw">void</span> <span class="fn">display</span>(<span class="kw">int</span> p[], <span class="kw">int</span> deg) {
+    <span class="kw">for</span>(<span class="kw">int</span> i = deg; i >= <span class="num">0</span>; i--) {
+        <span class="kw">if</span>(p[i] != <span class="num">0</span>) {
+            cout << p[i];
+            <span class="kw">if</span>(i > <span class="num">0</span>) cout << <span class="str">"x^"</span> << i << <span class="str">"+"</span>;
+        }
+    }
+    cout << endl;
+}
+
+<span class="kw">int</span> <span class="fn">main</span>() {
+    <span class="cm">// A = 3x^2 + 2x + 1</span>
+    <span class="kw">int</span> A[] = {<span class="num">1</span>, <span class="num">2</span>, <span class="num">3</span>}; <span class="kw">int</span> da = <span class="num">2</span>;
+    <span class="cm">// B = x + 4</span>
+    <span class="kw">int</span> B[] = {<span class="num">4</span>, <span class="num">1</span>}; <span class="kw">int</span> db = <span class="num">1</span>;
+    <span class="kw">int</span> C[MAX] = {}, D[MAX] = {};
+
+    <span class="fn">addPoly</span>(A, da, B, db, C);      <span class="fn">display</span>(C, <span class="num">2</span>);  <span class="cm">// 3x^2+3x+5</span>
+    <span class="fn">multiplyPoly</span>(A, da, B, db, D); <span class="fn">display</span>(D, <span class="num">3</span>);  <span class="cm">// 3x^3+14x^2+9x+4</span>
+    cout << <span class="fn">evaluate</span>(A, da, <span class="num">2.0</span>);                 <span class="cm">// A(2)=17</span>
+}</pre>
+  </div>
+</section>
+
+<!-- ======================== SPARSE MATRIX ======================== -->
+<section id="sparse" class="section">
+  <div class="section-badge badge-green">Unit I</div>
+  <h2>Sparse Matrix</h2>
+  <p>A matrix where most elements are zero. Storing all elements wastes memory — we store only non-zero elements.</p>
+  <div class="card-grid">
+    <div class="card">
+      <h3>Problem</h3>
+      <p>A 1000×1000 matrix with only 500 non-zero elements wastes ~4MB storing zeros. Sparse representation needs only ~6KB.</p>
+    </div>
+    <div class="card">
+      <h3>Representation (Triplet)</h3>
+      <p>Store each non-zero as triplet: (row, col, value). First row stores (rows, cols, total_non_zeros).</p>
+    </div>
+  </div>
+  <div class="code-block">
+    <div class="code-header"><div style="display:flex;align-items:center;gap:8px;"><div class="code-dots"><div class="code-dot dot-r"></div><div class="code-dot dot-y"></div><div class="code-dot dot-g"></div></div><span>sparse_matrix.cpp</span></div><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
+    <pre><span class="kw">#include</span> <span class="str">&lt;iostream&gt;</span>
+<span class="kw">using namespace</span> std;
+
+<span class="kw">struct</span> <span class="tp">Triplet</span> { <span class="kw">int</span> row, col, val; };
+
+<span class="kw">class</span> <span class="tp">SparseMatrix</span> {
+    <span class="tp">Triplet</span> data[<span class="num">100</span>];
+    <span class="kw">int</span> rows, cols, nnz; <span class="cm">// non-zero count</span>
+<span class="kw">public</span>:
+    <span class="fn">SparseMatrix</span>(<span class="kw">int</span> r, <span class="kw">int</span> c) : rows(r), cols(c), nnz(<span class="num">0</span>) {}
+
+    <span class="kw">void</span> <span class="fn">insert</span>(<span class="kw">int</span> r, <span class="kw">int</span> c, <span class="kw">int</span> v) {
+        <span class="kw">if</span>(v != <span class="num">0</span>) data[nnz++] = {r, c, v};
+    }
+
+    <span class="cm">// Transpose: swap row/col indices</span>
+    <span class="tp">SparseMatrix</span> <span class="fn">transpose</span>() {
+        <span class="tp">SparseMatrix</span> T(cols, rows);
+        <span class="kw">for</span>(<span class="kw">int</span> i = <span class="num">0</span>; i < nnz; i++)
+            T.<span class="fn">insert</span>(data[i].col, data[i].row, data[i].val);
+        <span class="kw">return</span> T;
+    }
+
+    <span class="cm">// Add two sparse matrices</span>
+    <span class="tp">SparseMatrix</span> <span class="fn">add</span>(<span class="tp">SparseMatrix</span>& B) {
+        <span class="tp">SparseMatrix</span> C(rows, cols);
+        <span class="kw">int</span> temp[<span class="num">10</span>][<span class="num">10</span>] = {};
+        <span class="kw">for</span>(<span class="kw">int</span> i = <span class="num">0</span>; i < nnz; i++)
+            temp[data[i].row][data[i].col] += data[i].val;
+        <span class="kw">for</span>(<span class="kw">int</span> i = <span class="num">0</span>; i < B.nnz; i++)
+            temp[B.data[i].row][B.data[i].col] += B.data[i].val;
+        <span class="kw">for</span>(<span class="kw">int</span> i = <span class="num">0</span>; i < rows; i++)
+            <span class="kw">for</span>(<span class="kw">int</span> j = <span class="num">0</span>; j < cols; j++)
+                <span class="kw">if</span>(temp[i][j]) C.<span class="fn">insert</span>(i, j, temp[i][j]);
+        <span class="kw">return</span> C;
+    }
+
+    <span class="kw">void</span> <span class="fn">display</span>() {
+        cout << <span class="str">"Row\tCol\tVal\n"</span>;
+        <span class="kw">for</span>(<span class="kw">int</span> i = <span class="num">0</span>; i < nnz; i++)
+            cout << data[i].row << <span class="str">"\t"</span> << data[i].col << <span class="str">"\t"</span> << data[i].val << <span class="str">"\n"</span>;
+    }
+};</pre>
+  </div>
+</section>
+
+<!-- ======================== SEARCH ======================== -->
+<section id="search" class="section">
+  <div class="section-badge badge-blue">Searching</div>
+  <h2>Linear & Binary Search</h2>
+  <p>Finding an element's position in a collection — the most fundamental operation in CS.</p>
+
+  <div class="viz-box">
+    <div class="viz-title">🔍 Search Visualizer</div>
+    <div class="viz-controls">
+      <input class="viz-input" id="search-target" type="number" placeholder="target" value="56" style="width:100px;">
+      <button class="viz-btn primary" onclick="runLinearSearch()">Linear Search</button>
+      <button class="viz-btn" onclick="runBinarySearch()">Binary Search</button>
+      <button class="viz-btn" onclick="resetSearch()">Reset</button>
+      <div class="speed-control">⚡ Speed: <input type="range" id="search-speed" min="1" max="10" value="5"> </div>
+    </div>
+    <div class="viz-area" id="search-viz" style="align-items:flex-end; padding-bottom:36px;"></div>
+    <div class="viz-msg" id="search-msg">Enter a target value and choose a search algorithm.</div>
+  </div>
+
+  <div class="card-grid">
+    <div class="card" style="border-color:rgba(0,212,255,0.2)">
+      <h3 style="color:var(--accent)">Linear Search</h3>
+      <p>Check each element one by one from left to right until target found or array exhausted.</p>
+      <div style="margin-top:12px;">
+        <div style="font-size:12px; color:var(--text2); margin-bottom:4px;">Time Complexity:</div>
+        <div style="font-family:'JetBrains Mono',monospace; font-size:13px;">Best: O(1) | Worst/Avg: O(n)</div>
+      </div>
+    </div>
+    <div class="card" style="border-color:rgba(16,185,129,0.2)">
+      <h3 style="color:var(--accent3)">Binary Search</h3>
+      <p>Requires sorted array. Repeatedly halve the search space by comparing with middle element.</p>
+      <div style="margin-top:12px;">
+        <div style="font-size:12px; color:var(--text2); margin-bottom:4px;">Time Complexity:</div>
+        <div style="font-family:'JetBrains Mono',monospace; font-size:13px;">Best: O(1) | Worst/Avg: O(log n)</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab(this,'search-tab','search-pseudo')">Pseudocode</button>
+    <button class="tab" onclick="switchTab(this,'search-tab','search-cpp')">C++ Code</button>
+  </div>
+  <div id="search-tab">
+    <div id="search-pseudo" class="tab-content active">
+      <div class="code-block">
+        <div class="code-header"><div style="display:flex;align-items:center;gap:8px;"><div class="code-dots"><div class="code-dot dot-r"></div><div class="code-dot dot-y"></div><div class="code-dot dot-g"></div></div><span>Pseudocode</span></div><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
+        <pre><span class="cm">// LINEAR SEARCH</span>
+<span class="kw">FUNCTION</span> <span class="fn">LinearSearch</span>(A[0..n-1], target):
+  <span class="kw">FOR</span> i = 0 <span class="kw">TO</span> n-1:
+    <span class="kw">IF</span> A[i] == target: <span class="kw">RETURN</span> i
+  <span class="kw">RETURN</span> -1   <span class="cm">// not found</span>
+
+<span class="cm">// BINARY SEARCH (requires sorted array)</span>
+<span class="kw">FUNCTION</span> <span class="fn">BinarySearch</span>(A[0..n-1], target):
+  low = 0, high = n-1
+  <span class="kw">WHILE</span> low <= high:
+    mid = (low + high) / 2
+    <span class="kw">IF</span> A[mid] == target: <span class="kw">RETURN</span> mid
+    <span class="kw">ELSE IF</span> A[mid] < target: low = mid + 1
+    <span class="kw">ELSE</span>: high = mid - 1
+  <span class="kw">RETURN</span> -1   <span class="cm">// not found</span></pre>
+      </div>
+    </div>
+    <div id="search-cpp" class="tab-content">
+      <div class="code-block">
+        <div class="code-header"><div style="display:flex;align-items:center;gap:8px;"><div class="code-dots"><div class="code-dot dot-r"></div><div class="code-dot dot-y"></div><div class="code-dot dot-g"></div></div><span>search.cpp</span></div><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
+        <pre><span class="kw">#include</span> <span class="str">&lt;iostream&gt;</span>
+<span class="kw">using namespace</span> std;
+
+<span class="cm">// Linear Search — O(n)</span>
+<span class="kw">int</span> <span class="fn">linearSearch</span>(<span class="kw">int</span> arr[], <span class="kw">int</span> n, <span class="kw">int</span> target) {
+    <span class="kw">for</span>(<span class="kw">int</span> i = <span class="num">0</span>; i < n; i++)
+        <span class="kw">if</span>(arr[i] == target) <span class="kw">return</span> i;
+    <span class="kw">return</span> -<span class="num">1</span>;
+}
+
+<span class="cm">// Binary Search — O(log n), array must be sorted</span>
+<span class="kw">int</span> <span class="fn">binarySearch</span>(<span class="kw">int</span> arr[], <span class="kw">int</span> n, <span class="kw">int</span> target) {
+    <span class="kw">int</span> low = <span class="num">0</span>, high = n - <span class="num">1</span>;
+    <span class="kw">while</span>(low <= high) {
+        <span class="kw">int</span> mid = low + (high - low) / <span class="num">2</span>; <span class="cm">// avoids overflow</span>
+        <span class="kw">if</span>(arr[mid] == target) <span class="kw">return</span> mid;
+        <span class="kw">else if</span>(arr[mid] < target) low = mid + <span class="num">1</span>;
+        <span class="kw">else</span> high = mid - <span class="num">1</span>;
+    }
+    <span class="kw">return</span> -<span class="num">1</span>;
+}
+
+<span class="kw">int</span> <span class="fn">main</span>() {
+    <span class="kw">int</span> arr[] = {<span class="num">2</span>, <span class="num">5</span>, <span class="num">8</span>, <span class="num">12</span>, <span class="num">16</span>, <span class="num">23</span>, <span class="num">38</span>, <span class="num">56</span>, <span class="num">72</span>, <span class="num">91</span>};
+    <span class="kw">int</span> n = <span class="num">10</span>;
+    cout << <span class="fn">linearSearch</span>(arr, n, <span class="num">23</span>) << endl; <span class="cm">// 5</span>
+    cout << <span class="fn">binarySearch</span>(arr, n, <span class="num">56</span>) << endl; <span class="cm">// 7</span>
+}</pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== SORTING ======================== -->
+<section id="sorting" class="section">
+  <div class="section-badge badge-yellow">Sorting</div>
+  <h2>Sorting Algorithms</h2>
+  <p>Arranging elements in ascending or descending order. Fundamental to efficient computing.</p>
+
+  <div class="viz-box">
+    <div class="viz-title">🎮 Sorting Visualizer</div>
+    <div class="viz-controls">
+      <button class="viz-btn primary" onclick="runSort('bubble')">Bubble Sort</button>
+      <button class="viz-btn" onclick="runSort('insertion')">Insertion Sort</button>
+      <button class="viz-btn" onclick="runSort('selection')">Selection Sort</button>
+      <button class="viz-btn" onclick="runSort('quick')">Quick Sort</button>
+      <button class="viz-btn" onclick="resetSort()">New Array</button>
+      <div class="speed-control">⚡ <input type="range" id="sort-speed" min="1" max="10" value="5" style="width:60px;"></div>
+    </div>
+    <div class="viz-area" id="sort-viz" style="align-items:flex-end; padding-bottom:36px; min-height:140px;"></div>
+    <div class="viz-msg" id="sort-msg">Click a sort algorithm to watch it work step by step!</div>
+  </div>
+
+  <table class="complexity-table">
+    <tr>
+      <th>Algorithm</th><th>Best</th><th>Average</th><th>Worst</th><th>Space</th><th>Stable</th>
+    </tr>
+    <tr>
+      <td>Bubble Sort</td>
+      <td class="best">O(n)</td><td class="avg">O(n²)</td><td class="worst">O(n²)</td>
+      <td>O(1)</td><td>✅ Yes</td>
+    </tr>
+    <tr>
+      <td>Selection Sort</td>
+      <td class="avg">O(n²)</td><td class="avg">O(n²)</td><td class="worst">O(n²)</td>
+      <td>O(1)</td><td>❌ No</td>
+    </tr>
+    <tr>
+      <td>Insertion Sort</td>
+      <td class="best">O(n)</td><td class="avg">O(n²)</td><td class="worst">O(n²)</td>
+      <td>O(1)</td><td>✅ Yes</td>
+    </tr>
+    <tr>
+      <td>Quick Sort</td>
+      <td class="best">O(n log n)</td><td class="best">O(n log n)</td><td class="worst">O(n²)</td>
+      <td>O(log n)</td><td>❌ No</td>
+    </tr>
+  </table>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab(this,'sort-tab','sort-bubble')">Bubble</button>
+    <button class="tab" onclick="switchTab(this,'sort-tab','sort-insertion')">Insertion</button>
+    <button class="tab" onclick="switchTab(this,'sort-tab','sort-selection')">Selection</button>
+    <button class="tab" onclick="switchTab(this,'sort-tab','sort-quick')">Quick</button>
+  </div>
+  <div id="sort-tab">
+    <div id="sort-bubble" class="tab-content active">
+      <div class="highlight-box">
+        <h4>💭 Bubble Sort — Theory</h4>
+        <p>Repeatedly swap adjacent elements that are in wrong order. Largest element "bubbles up" to end each pass. Optimized version stops early if no swaps in a pass.</p>
+      </div>
+      <div class="code-block">
+        <div class="code-header"><div style="display:flex;align-items:center;gap:8px;"><div class="code-dots"><div class="code-dot dot-r"></div><div class="code-dot dot-y"></div><div class="code-dot dot-g"></div></div><span>bubble_sort.cpp</span></div><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
+        <pre><span class="kw">void</span> <span class="fn">bubbleSort</span>(<span class="kw">int</span> arr[], <span class="kw">int</span> n) {
+    <span class="kw">for</span>(<span class="kw">int</span> i = <span class="num">0</span>; i < n-<span class="num">1</span>; i++) {
+        <span class="kw">bool</span> swapped = <span class="kw">false</span>;
+        <span class="kw">for</span>(<span class="kw">int</span> j = <span class="num">0</span>; j < n-i-<span class="num">1</span>; j++) {
+            <span class="kw">if</span>(arr[j] > arr[j+<span class="num">1</span>]) {
+                swap(arr[j], arr[j+<span class="num">1</span>]);
+                swapped = <span class="kw">true</span>;
+            }
+        }
+        <span class="kw">if</span>(!swapped) <span class="kw">break</span>; <span class="cm">// already sorted</span>
+    }
+}
+<span class="cm">// Time: O(n²) avg/worst  | Space: O(1)</span></pre>
+      </div>
+    </div>
+    <div id="sort-insertion" class="tab-content">
+      <div class="highlight-box">
+        <h4>💭 Insertion Sort — Theory</h4>
+        <p>Like sorting playing cards in hand. Pick one card at a time and insert it in correct position among already-sorted cards. Efficient for nearly-sorted arrays.</p>
+      </div>
+      <div class="code-block">
+        <div class="code-header"><div style="display:flex;align-items:center;gap:8px;"><div class="code-dots"><div class="code-dot dot-r"></div><div class="code-dot dot-y"></div><div class="code-dot dot-g"></div></div><span>insertion_sort.cpp</span></div><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
+        <pre><span class="kw">void</span> <span class="fn">insertionSort</span>(<span class="kw">int</span> arr[], <span class="kw">int</span> n) {
+    <span class="kw">for</span>(<span class="kw">int</span> i = <span class="num">1</span>; i < n; i++) {
+        <span class="kw">int</span> key = arr[i];
+        <span class="kw">int</span> j = i - <span class="num">1</span>;
+        <span class="cm">// shift elements greater than key</span>
+        <span class="kw">while</span>(j >= <span class="num">0</span> && arr[j] > key) {
+            arr[j+<span class="num">1</span>] = arr[j];
+            j--;
+        }
+        arr[j+<span class="num">1</span>] = key; <span class="cm">// place key in correct spot</span>
+    }
+}
+<span class="cm">// Time: O(n) best, O(n²) avg/worst | Space: O(1)</span></pre>
+      </div>
+    </div>
+    <div id="sort-selection" class="tab-content">
+      <div class="highlight-box">
+        <h4>💭 Selection Sort — Theory</h4>
+        <p>Find the minimum element in unsorted portion and swap it to the front. Simple but always O(n²) — never better than worst case.</p>
+      </div>
+      <div class="code-block">
+        <div class="code-header"><div style="display:flex;align-items:center;gap:8px;"><div class="code-dots"><div class="code-dot dot-r"></div><div class="code-dot dot-y"></div><div class="code-dot dot-g"></div></div><span>selection_sort.cpp</span></div><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
+        <pre><span class="kw">void</span> <span class="fn">selectionSort</span>(<span class="kw">int</span> arr[], <span class="kw">int</span> n) {
+    <span class="kw">for</span>(<span class="kw">int</span> i = <span class="num">0</span>; i < n-<span class="num">1</span>; i++) {
+        <span class="kw">int</span> minIdx = i;
+        <span class="cm">// find minimum in unsorted portion</span>
+        <span class="kw">for</span>(<span class="kw">int</span> j = i+<span class="num">1</span>; j < n; j++)
+            <span class="kw">if</span>(arr[j] < arr[minIdx]) minIdx = j;
+        swap(arr[i], arr[minIdx]); <span class="cm">// place min at front</span>
+    }
+}
+<span class="cm">// Time: O(n²) always | Space: O(1)</span></pre>
+      </div>
+    </div>
+    <div id="sort-quick" class="tab-content">
+      <div class="highlight-box">
+        <h4>💭 Quick Sort — Theory</h4>
+        <p>Divide and conquer. Choose a pivot, partition array so elements less than pivot go left, greater go right. Recursively sort partitions. Average O(n log n) but O(n²) worst case.</p>
+      </div>
+      <div class="code-block">
+        <div class="code-header"><div style="display:flex;align-items:center;gap:8px;"><div class="code-dots"><div class="code-dot dot-r"></div><div class="code-dot dot-y"></div><div class="code-dot dot-g"></div></div><span>quick_sort.cpp</span></div><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
+        <pre><span class="kw">int</span> <span class="fn">partition</span>(<span class="kw">int</span> arr[], <span class="kw">int</span> low, <span class="kw">int</span> high) {
+    <span class="kw">int</span> pivot = arr[high]; <span class="cm">// last element as pivot</span>
+    <span class="kw">int</span> i = low - <span class="num">1</span>;       <span class="cm">// smaller element index</span>
+    <span class="kw">for</span>(<span class="kw">int</span> j = low; j < high; j++) {
+        <span class="kw">if</span>(arr[j] <= pivot) {
+            i++;
+            swap(arr[i], arr[j]);
+        }
+    }
+    swap(arr[i+<span class="num">1</span>], arr[high]); <span class="cm">// place pivot correctly</span>
+    <span class="kw">return</span> i + <span class="num">1</span>;
+}
+
+<span class="kw">void</span> <span class="fn">quickSort</span>(<span class="kw">int</span> arr[], <span class="kw">int</span> low, <span class="kw">int</span> high) {
+    <span class="kw">if</span>(low < high) {
+        <span class="kw">int</span> pi = <span class="fn">partition</span>(arr, low, high);
+        <span class="fn">quickSort</span>(arr, low, pi - <span class="num">1</span>);
+        <span class="fn">quickSort</span>(arr, pi + <span class="num">1</span>, high);
+    }
+}
+<span class="cm">// Time: O(n log n) avg | O(n²) worst | Space: O(log n)</span></pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== STACKS ======================== -->
+<section id="stacks" class="section">
+  <div class="section-badge badge-purple">Unit II</div>
+  <h2>Stacks</h2>
+  <p>A LIFO (Last In, First Out) linear data structure. Think of a stack of plates — you can only add/remove from the top.</p>
+
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-icon">📌</div>
+      <h3>LIFO Principle</h3>
+      <p>Last element inserted is the first to be removed. Only top of stack is accessible.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">⚡</div>
+      <h3>All Ops O(1)</h3>
+      <p>Push, Pop, Peek, isEmpty are all constant time — no shifting needed.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🔧</div>
+      <h3>Applications</h3>
+      <p>Expression evaluation, function call management, undo operations, backtracking.</p>
+    </div>
+  </div>
+
+  <div class="viz-box">
+    <div class="viz-title">🎮 Stack Visualizer</div>
+    <div class="viz-controls">
+      <input class="viz-input" id="stack-val" type="number" placeholder="value" value="42">
+      <button class="viz-btn primary" onclick="stackPush()">Push</button>
+      <button class="viz-btn" onclick="stackPop()">Pop</button>
+      <button class="viz-btn" onclick="stackPeek()">Peek</button>
+      <button class="viz-btn" onclick="resetStack()">Reset</button>
+    </div>
+    <div style="display:flex; gap:20px; align-items:flex-start;">
+      <div>
+        <div style="font-size:11px; color:var(--text2); margin-bottom:8px; text-align:center;">Stack (top →)</div>
+        <div class="stack-viz" id="stack-viz">
+          <div class="stack-base"></div>
+          <span class="stack-empty">Empty stack</span>
+        </div>
+      </div>
+      <div style="flex:1;">
+        <div class="viz-msg" id="stack-msg">Stack is ready. Push elements to begin!</div>
+        <div style="margin-top:12px; background:var(--code-bg); border-radius:8px; padding:12px;">
+          <div style="font-size:11px; color:var(--text2); margin-bottom:8px;">Stack State</div>
+          <div style="display:flex; gap:16px; font-family:'JetBrains Mono',monospace; font-size:12px;">
+            <div>Size: <span id="stack-size" style="color:var(--accent)">0</span></div>
+            <div>Top: <span id="stack-top-val" style="color:var(--accent4)">-</span></div>
+            <div>Empty: <span id="stack-empty-flag" style="color:var(--accent3)">Yes</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab(this,'stack-tab','stack-pseudo')">Pseudocode</button>
+    <button class="tab" onclick="switchTab(this,'stack-tab','stack-cpp')">C++ Code</button>
+  </div>
+  <div id="stack-tab">
+    <div id="stack-pseudo" class="tab-content active">
+      <div class="code-block">
+        <div class="code-header"><div style="display:flex;align-items:center;gap:8px;"><div class="code-dots"><div class="code-dot dot-r"></div><div class="code-dot dot-y"></div><div class="code-dot dot-g"></div></div><span>Stack — Pseudocode</span></div><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
+        <pre><span class="kw">INITIALIZE</span>: Stack S, top = -1, MAX_SIZE = n
+
+<span class="kw">FUNCTION</span> <span class="fn">Push</span>(S, x):
+  <span class="kw">IF</span> top == MAX_SIZE-1: ERROR "Stack Overflow"
+  top = top + 1
+  S[top] = x
+
+<span class="kw">FUNCTION</span> <span class="fn">Pop</span>(S):
+  <span class="kw">IF</span> top == -1: ERROR "Stack Underflow"
+  x = S[top]
+  top = top - 1
+  <span class="kw">RETURN</span> x
+
+<span class="kw">FUNCTION</span> <span class="fn">Peek</span>(S):
+  <span class="kw">IF</span> top == -1: ERROR "Stack Empty"
+  <span class="kw">RETURN</span> S[top]
+
+<span class="kw">FUNCTION</span> <span class="fn">isEmpty</span>(S): <span class="kw">RETURN</span> top == -1
+<span class="kw">FUNCTION</span> <span class="fn">isFull</span>(S): <span class="kw">RETURN</span> top == MAX_SIZE-1</pre>
+      </div>
+    </div>
+    <div id="stack-cpp" class="tab-content">
+      <div class="code-block">
+        <div class="code-header"><div style="display:flex;align-items:center;gap:8px;"><div class="code-dots"><div class="code-dot dot-r"></div><div class="code-dot dot-y"></div><div class="code-dot dot-g"></div></div><span>stack.cpp</span></div><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
+        <pre><span class="kw">#include</span> <span class="str">&lt;iostream&gt;</span>
+<span class="kw">using namespace</span> std;
+
+<span class="kw">class</span> <span class="tp">Stack</span> {
+    <span class="kw">int</span>* arr;
+    <span class="kw">int</span> top, maxSize;
+<span class="kw">public</span>:
+    <span class="fn">Stack</span>(<span class="kw">int</span> size) : maxSize(size), top(-<span class="num">1</span>) {
+        arr = <span class="kw">new int</span>[size];
+    }
+
+    <span class="kw">bool</span> <span class="fn">isEmpty</span>() { <span class="kw">return</span> top == -<span class="num">1</span>; }
+    <span class="kw">bool</span> <span class="fn">isFull</span>()  { <span class="kw">return</span> top == maxSize-<span class="num">1</span>; }
+
+    <span class="cm">// O(1)</span>
+    <span class="kw">void</span> <span class="fn">push</span>(<span class="kw">int</span> x) {
+        <span class="kw">if</span>(<span class="fn">isFull</span>()) { cout << <span class="str">"Overflow!\n"</span>; <span class="kw">return</span>; }
+        arr[++top] = x;
+    }
+
+    <span class="cm">// O(1)</span>
+    <span class="kw">int</span> <span class="fn">pop</span>() {
+        <span class="kw">if</span>(<span class="fn">isEmpty</span>()) { cout << <span class="str">"Underflow!\n"</span>; <span class="kw">return</span> -<span class="num">1</span>; }
+        <span class="kw">return</span> arr[top--];
+    }
+
+    <span class="cm">// O(1)</span>
+    <span class="kw">int</span> <span class="fn">peek</span>() {
+        <span class="kw">if</span>(<span class="fn">isEmpty</span>()) { cout << <span class="str">"Empty!\n"</span>; <span class="kw">return</span> -<span class="num">1</span>; }
+        <span class="kw">return</span> arr[top];
+    }
+
+    ~<span class="fn">Stack</span>() { <span class="kw">delete</span>[] arr; }
+};
+
+<span class="kw">int</span> <span class="fn">main</span>() {
+    <span class="tp">Stack</span> s(<span class="num">5</span>);
+    s.<span class="fn">push</span>(<span class="num">10</span>); s.<span class="fn">push</span>(<span class="num">20</span>); s.<span class="fn">push</span>(<span class="num">30</span>);
+    cout << s.<span class="fn">peek</span>() << endl; <span class="cm">// 30</span>
+    cout << s.<span class="fn">pop</span>()  << endl; <span class="cm">// 30</span>
+    cout << s.<span class="fn">peek</span>() << endl; <span class="cm">// 20</span>
+}</pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== STACK APPS ======================== -->
+<section id="stack-apps" class="section">
+  <div class="section-badge badge-red">Stack Applications</div>
+  <h2>Stack Applications</h2>
+  <p>Stacks are used everywhere — from evaluating math expressions to managing function calls and converting number bases.</p>
+
+  <div class="card-grid">
+    <div class="card" style="border-color:rgba(239,68,68,0.2)">
+      <div class="card-icon">🔢</div>
+      <h3>Decimal → Binary</h3>
+      <p>Push remainders of successive divisions by 2. Pop all to get binary representation.</p>
+    </div>
+    <div class="card" style="border-color:rgba(124,58,237,0.2)">
+      <div class="card-icon">📐</div>
+      <h3>Expression Evaluation</h3>
+      <p>Infix → Postfix conversion using stack. Evaluate postfix using operand stack.</p>
+    </div>
+    <div class="card" style="border-color:rgba(0,212,255,0.2)">
+      <div class="card-icon">📞</div>
+      <h3>Function Call Stack</h3>
+      <p>OS maintains a call stack. Each function call pushes a frame; return pops it.</p>
+    </div>
+  </div>
+
+  <!-- DECIMAL TO BINARY -->
+  <div class="viz-box">
+    <div class="viz-title">🔢 Decimal to Binary Converter (using Stack)</div>
+    <div class="viz-controls">
+      <input class="viz-input" id="dec-input" type="number" placeholder="decimal" value="13" style="width:120px;">
+      <button class="viz-btn primary" onclick="decToBin()">Convert</button>
+      <button class="viz-btn" onclick="document.getElementById('bin-steps').innerHTML=''; document.getElementById('bin-result').innerHTML='';">Clear</button>
+    </div>
+    <div class="conversion-box">
+      <div class="conv-input">
+        <h4>Decimal</h4>
+        <div class="conv-value" id="bin-dec">13</div>
+      </div>
+      <div class="conv-arrow">→</div>
+      <div class="conv-output">
+        <h4>Binary</h4>
+        <div class="conv-value" id="bin-result" style="color:var(--accent3)">1101</div>
+      </div>
+    </div>
+    <div style="font-size:12px; color:var(--text2); margin-top:12px; margin-bottom:6px;">Steps (Stack operations):</div>
+    <div class="step-list" id="bin-steps">
+      <div class="step-item done">13 ÷ 2 = 6, remainder → Push(1)</div>
+      <div class="step-item done">6 ÷ 2 = 3, remainder → Push(0)</div>
+      <div class="step-item done">3 ÷ 2 = 1, remainder → Push(1)</div>
+      <div class="step-item done">1 ÷ 2 = 0, remainder → Push(1)</div>
+      <div class="step-item done">Pop all → 1101</div>
+    </div>
+  </div>
+
+  <!-- EXPRESSION -->
+  <div class="viz-box">
+    <div class="viz-title">📐 Infix to Postfix Conversion</div>
+    <div class="viz-controls">
+      <input class="viz-input" id="expr-input" type="text" placeholder="e.g. A+B*C" value="A+B*C" style="width:160px;">
+      <button class="viz-btn primary" onclick="infixToPostfix()">Convert</button>
+    </div>
+    <div class="conversion-box">
+      <div class="conv-input"><h4>Infix</h4><div class="conv-value" id="infix-display" style="font-size:18px;">A+B*C</div></div>
+      <div class="conv-arrow">→</div>
+      <div class="conv-output"><h4>Postfix (RPN)</h4><div class="conv-value" id="postfix-display" style="color:var(--accent3); font-size:18px;">ABC*+</div></div>
+    </div>
+    <div class="step-list" id="expr-steps">
+      <div class="step-item done">Read 'A' → output: A</div>
+      <div class="step-item done">Read '+' (prec 1) → push: [+]</div>
+      <div class="step-item done">Read 'B' → output: AB</div>
+      <div class="step-item done">Read '*' (prec 2 > 1) → push: [+,*]</div>
+      <div class="step-item done">Read 'C' → output: ABC</div>
+      <div class="step-item done">End → pop all: ABC*+</div>
+    </div>
+  </div>
+
+  <div class="code-block">
+    <div class="code-header"><div style="display:flex;align-items:center;gap:8px;"><div class="code-dots"><div class="code-dot dot-r"></div><div class="code-dot dot-y"></div><div class="code-dot dot-g"></div></div><span>decimal_to_binary.cpp + infix_to_postfix.cpp</span></div><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
+    <pre><span class="kw">#include</span> <span class="str">&lt;iostream&gt;</span>
+<span class="kw">#include</span> <span class="str">&lt;stack&gt;</span>
+<span class="kw">#include</span> <span class="str">&lt;string&gt;</span>
+<span class="kw">using namespace</span> std;
+
+<span class="cm">// ========= Decimal to Binary =========</span>
+<span class="kw">string</span> <span class="fn">decToBinary</span>(<span class="kw">int</span> n) {
+    stack&lt;<span class="kw">int</span>&gt; s;
+    <span class="kw">if</span>(n == <span class="num">0</span>) <span class="kw">return</span> <span class="str">"0"</span>;
+    <span class="kw">while</span>(n > <span class="num">0</span>) {
+        s.<span class="fn">push</span>(n % <span class="num">2</span>); <span class="cm">// push remainder</span>
+        n /= <span class="num">2</span>;
+    }
+    <span class="kw">string</span> result = <span class="str">""</span>;
+    <span class="kw">while</span>(!s.<span class="fn">empty</span>()) {
+        result += to_string(s.<span class="fn">top</span>()); s.<span class="fn">pop</span>();
+    }
+    <span class="kw">return</span> result;
+}
+
+<span class="cm">// ========= Infix to Postfix =========</span>
+<span class="kw">int</span> <span class="fn">precedence</span>(<span class="kw">char</span> op) {
+    <span class="kw">if</span>(op == <span class="str">'^'</span>) <span class="kw">return</span> <span class="num">3</span>;
+    <span class="kw">if</span>(op == <span class="str">'*'</span> || op == <span class="str">'/'</span>) <span class="kw">return</span> <span class="num">2</span>;
+    <span class="kw">if</span>(op == <span class="str">'+'</span> || op == <span class="str">'-'</span>) <span class="kw">return</span> <span class="num">1</span>;
+    <span class="kw">return</span> <span class="num">0</span>;
+}
+
+<span class="kw">string</span> <span class="fn">infixToPostfix</span>(<span class="kw">string</span> expr) {
+    stack&lt;<span class="kw">char</span>&gt; s;
+    <span class="kw">string</span> result = <span class="str">""</span>;
+    <span class="kw">for</span>(<span class="kw">char</span> c : expr) {
+        <span class="kw">if</span>(isalnum(c)) result += c; <span class="cm">// operand → output</span>
+        <span class="kw">else if</span>(c == <span class="str">'('</span>) s.<span class="fn">push</span>(c);
+        <span class="kw">else if</span>(c == <span class="str">')'</span>) {
+            <span class="kw">while</span>(!s.<span class="fn">empty</span>() && s.<span class="fn">top</span>() != <span class="str">'('</span>)
+                { result += s.<span class="fn">top</span>(); s.<span class="fn">pop</span>(); }
+            s.<span class="fn">pop</span>(); <span class="cm">// remove '('</span>
+        } <span class="kw">else</span> { <span class="cm">// operator</span>
+            <span class="kw">while</span>(!s.<span class="fn">empty</span>() && <span class="fn">precedence</span>(s.<span class="fn">top</span>()) >= <span class="fn">precedence</span>(c))
+                { result += s.<span class="fn">top</span>(); s.<span class="fn">pop</span>(); }
+            s.<span class="fn">push</span>(c);
+        }
+    }
+    <span class="kw">while</span>(!s.<span class="fn">empty</span>()) { result += s.<span class="fn">top</span>(); s.<span class="fn">pop</span>(); }
+    <span class="kw">return</span> result;
+}
+
+<span class="kw">int</span> <span class="fn">main</span>() {
+    cout << <span class="fn">decToBinary</span>(<span class="num">13</span>) << endl;             <span class="cm">// 1101</span>
+    cout << <span class="fn">infixToPostfix</span>(<span class="str">"A+B*C"</span>) << endl;  <span class="cm">// ABC*+</span>
+    cout << <span class="fn">infixToPostfix</span>(<span class="str">"(A+B)*C"</span>) << endl; <span class="cm">// AB+C*</span>
+}</pre>
+  </div>
+</section>
+
+<!-- ======================== QUEUES ======================== -->
+<section id="queues" class="section">
+  <div class="section-badge badge-green">Unit II</div>
+  <h2>Queues</h2>
+  <p>A FIFO (First In, First Out) linear data structure. Like a line of people — first person to join is first to be served.</p>
+
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-icon">🚶</div>
+      <h3>FIFO Principle</h3>
+      <p>First element inserted is first to be removed. Insertions at rear, deletions from front.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">⚡</div>
+      <h3>O(1) Operations</h3>
+      <p>Enqueue (rear) and Dequeue (front) are both constant time operations.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">💼</div>
+      <h3>Job Scheduling</h3>
+      <p>OS uses queues for process scheduling, printer jobs, network packet handling.</p>
+    </div>
+  </div>
+
+  <div class="viz-box">
+    <div class="viz-title">🎮 Queue Visualizer</div>
+    <div class="viz-controls">
+      <input class="viz-input" id="queue-val" type="number" placeholder="value" value="10">
+      <button class="viz-btn primary" onclick="queueEnqueue()">Enqueue</button>
+      <button class="viz-btn" onclick="queueDequeue()">Dequeue</button>
+      <button class="viz-btn" onclick="resetQueue()">Reset</button>
+    </div>
+    <div style="overflow-x:auto;">
+      <div class="queue-viz" id="queue-viz">
+        <span style="color:var(--text2); font-size:13px; font-style:italic;">Empty queue</span>
+      </div>
+      <div class="queue-labels" id="queue-labels"></div>
+    </div>
+    <div class="viz-msg" id="queue-msg">Queue is empty. Enqueue some elements!</div>
+    <div style="margin-top:12px; background:var(--code-bg); border-radius:8px; padding:12px; display:flex; gap:24px;">
+      <div style="font-family:'JetBrains Mono',monospace; font-size:12px;">Front: <span id="q-front" style="color:var(--accent3)">-</span></div>
+      <div style="font-family:'JetBrains Mono',monospace; font-size:12px;">Rear: <span id="q-rear" style="color:var(--accent4)">-</span></div>
+      <div style="font-family:'JetBrains Mono',monospace; font-size:12px;">Size: <span id="q-size" style="color:var(--accent)">0</span></div>
+    </div>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab(this,'queue-tab','queue-pseudo')">Pseudocode</button>
+    <button class="tab" onclick="switchTab(this,'queue-tab','queue-cpp')">C++ Code</button>
+  </div>
+  <div id="queue-tab">
+    <div id="queue-pseudo" class="tab-content active">
+      <div class="code-block">
+        <div class="code-header"><div style="display:flex;align-items:center;gap:8px;"><div class="code-dots"><div class="code-dot dot-r"></div><div class="code-dot dot-y"></div><div class="code-dot dot-g"></div></div><span>Queue — Pseudocode</span></div><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
+        <pre><span class="kw">INITIALIZE</span>: Queue Q[MAX], front = -1, rear = -1
+
+<span class="kw">FUNCTION</span> <span class="fn">Enqueue</span>(Q, x):
+  <span class="kw">IF</span> rear == MAX-1: ERROR "Queue Overflow"
+  <span class="kw">IF</span> front == -1: front = 0
+  rear = rear + 1
+  Q[rear] = x
+
+<span class="kw">FUNCTION</span> <span class="fn">Dequeue</span>(Q):
+  <span class="kw">IF</span> front == -1: ERROR "Queue Underflow"
+  x = Q[front]
+  <span class="kw">IF</span> front == rear: front = rear = -1  <span class="cm">// last element</span>
+  <span class="kw">ELSE</span>: front = front + 1
+  <span class="kw">RETURN</span> x
+
+<span class="kw">FUNCTION</span> <span class="fn">Front</span>(Q): <span class="kw">RETURN</span> Q[front]
+<span class="kw">FUNCTION</span> <span class="fn">isEmpty</span>(Q): <span class="kw">RETURN</span> front == -1</pre>
+      </div>
+    </div>
+    <div id="queue-cpp" class="tab-content">
+      <div class="code-block">
+        <div class="code-header"><div style="display:flex;align-items:center;gap:8px;"><div class="code-dots"><div class="code-dot dot-r"></div><div class="code-dot dot-y"></div><div class="code-dot dot-g"></div></div><span>queue.cpp</span></div><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
+        <pre><span class="kw">#include</span> <span class="str">&lt;iostream&gt;</span>
+<span class="kw">using namespace</span> std;
+
+<span class="kw">class</span> <span class="tp">Queue</span> {
+    <span class="kw">int</span>* arr;
+    <span class="kw">int</span> front, rear, maxSize;
+<span class="kw">public</span>:
+    <span class="fn">Queue</span>(<span class="kw">int</span> size) : maxSize(size), front(-<span class="num">1</span>), rear(-<span class="num">1</span>) {
+        arr = <span class="kw">new int</span>[size];
+    }
+
+    <span class="kw">bool</span> <span class="fn">isEmpty</span>() { <span class="kw">return</span> front == -<span class="num">1</span>; }
+    <span class="kw">bool</span> <span class="fn">isFull</span>()  { <span class="kw">return</span> rear == maxSize - <span class="num">1</span>; }
+
+    <span class="cm">// O(1)</span>
+    <span class="kw">void</span> <span class="fn">enqueue</span>(<span class="kw">int</span> x) {
+        <span class="kw">if</span>(<span class="fn">isFull</span>()) { cout << <span class="str">"Queue Full!\n"</span>; <span class="kw">return</span>; }
+        <span class="kw">if</span>(front == -<span class="num">1</span>) front = <span class="num">0</span>;
+        arr[++rear] = x;
+    }
+
+    <span class="cm">// O(1)</span>
+    <span class="kw">int</span> <span class="fn">dequeue</span>() {
+        <span class="kw">if</span>(<span class="fn">isEmpty</span>()) { cout << <span class="str">"Queue Empty!\n"</span>; <span class="kw">return</span> -<span class="num">1</span>; }
+        <span class="kw">int</span> x = arr[front];
+        <span class="kw">if</span>(front == rear) front = rear = -<span class="num">1</span>;
+        <span class="kw">else</span> front++;
+        <span class="kw">return</span> x;
+    }
+
+    <span class="kw">int</span> <span class="fn">frontVal</span>() { <span class="kw">return</span> <span class="fn">isEmpty</span>() ? -<span class="num">1</span> : arr[front]; }
+
+    ~<span class="fn">Queue</span>() { <span class="kw">delete</span>[] arr; }
+};
+
+<span class="kw">int</span> <span class="fn">main</span>() {
+    <span class="tp">Queue</span> q(<span class="num">5</span>);
+    q.<span class="fn">enqueue</span>(<span class="num">10</span>); q.<span class="fn">enqueue</span>(<span class="num">20</span>); q.<span class="fn">enqueue</span>(<span class="num">30</span>);
+    cout << q.<span class="fn">dequeue</span>() << endl;    <span class="cm">// 10 (FIFO)</span>
+    cout << q.<span class="fn">frontVal</span>() << endl;  <span class="cm">// 20</span>
+}</pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== QUEUE TYPES ======================== -->
+<section id="queue-types" class="section">
+  <div class="section-badge badge-yellow">Queue Variants</div>
+  <h2>Queue Variants</h2>
+  <p>Several specialized queue types solve specific problems — circular queues, deques, and priority queues.</p>
+
+  <div class="card-grid">
+    <div class="card" style="border-color:rgba(0,212,255,0.2)">
+      <div class="card-icon">🔄</div>
+      <h3 style="color:var(--accent)">Circular Queue</h3>
+      <p>Rear wraps around to front. Solves the "false full" problem of linear queues. Used for buffering.</p>
+    </div>
+    <div class="card" style="border-color:rgba(124,58,237,0.2)">
+      <div class="card-icon">↔️</div>
+      <h3 style="color:#a78bfa">Deque (Double-ended)</h3>
+      <p>Insert and delete from BOTH ends. More flexible than stack or queue.</p>
+    </div>
+    <div class="card" style="border-color:rgba(16,185,129,0.2)">
+      <div class="card-icon">⭐</div>
+      <h3 style="color:var(--accent3)">Priority Queue</h3>
+      <p>Elements dequeued by priority, not arrival order. Basis for Dijkstra's, Prim's algorithms.</p>
+    </div>
+    <div class="card" style="border-color:rgba(245,158,11,0.2)">
+      <div class="card-icon">📋</div>
+      <h3 style="color:var(--accent4)">Job Scheduling</h3>
+      <p>OS schedulers use queues. Round Robin uses circular queue. Priority scheduling uses priority queue.</p>
+    </div>
+  </div>
+
+  <div class="code-block">
+    <div class="code-header"><div style="display:flex;align-items:center;gap:8px;"><div class="code-dots"><div class="code-dot dot-r"></div><div class="code-dot dot-y"></div><div class="code-dot dot-g"></div></div><span>circular_queue.cpp</span></div><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
+    <pre><span class="kw">class</span> <span class="tp">CircularQueue</span> {
+    <span class="kw">int</span>* arr;
+    <span class="kw">int</span> front, rear, size, maxSize;
+<span class="kw">public</span>:
+    <span class="fn">CircularQueue</span>(<span class="kw">int</span> n) : maxSize(n), front(<span class="num">0</span>), rear(<span class="num">0</span>), size(<span class="num">0</span>) {
+        arr = <span class="kw">new int</span>[n];
+    }
+
+    <span class="kw">bool</span> <span class="fn">isEmpty</span>() { <span class="kw">return</span> size == <span class="num">0</span>; }
+    <span class="kw">bool</span> <span class="fn">isFull</span>()  { <span class="kw">return</span> size == maxSize; }
+
+    <span class="kw">void</span> <span class="fn">enqueue</span>(<span class="kw">int</span> x) {
+        <span class="kw">if</span>(<span class="fn">isFull</span>()) { cout << <span class="str">"Full!\n"</span>; <span class="kw">return</span>; }
+        arr[rear] = x;
+        rear = (rear + <span class="num">1</span>) % maxSize; <span class="cm">// wrap around!</span>
+        size++;
+    }
+
+    <span class="kw">int</span> <span class="fn">dequeue</span>() {
+        <span class="kw">if</span>(<span class="fn">isEmpty</span>()) { cout << <span class="str">"Empty!\n"</span>; <span class="kw">return</span> -<span class="num">1</span>; }
+        <span class="kw">int</span> x = arr[front];
+        front = (front + <span class="num">1</span>) % maxSize; <span class="cm">// wrap around!</span>
+        size--;
+        <span class="kw">return</span> x;
+    }
+};</pre>
+  </div>
+
+  <div class="code-block">
+    <div class="code-header"><div style="display:flex;align-items:center;gap:8px;"><div class="code-dots"><div class="code-dot dot-r"></div><div class="code-dot dot-y"></div><div class="code-dot dot-g"></div></div><span>priority_queue.cpp</span></div><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
+    <pre><span class="kw">#include</span> <span class="str">&lt;queue&gt;</span>
+<span class="kw">using namespace</span> std;
+
+<span class="cm">// STL Priority Queue (max-heap by default)</span>
+<span class="kw">int</span> <span class="fn">main</span>() {
+    priority_queue&lt;<span class="kw">int</span>&gt; pq;
+    pq.<span class="fn">push</span>(<span class="num">3</span>); pq.<span class="fn">push</span>(<span class="num">1</span>); pq.<span class="fn">push</span>(<span class="num">5</span>); pq.<span class="fn">push</span>(<span class="num">2</span>);
+
+    <span class="kw">while</span>(!pq.<span class="fn">empty</span>()) {
+        cout << pq.<span class="fn">top</span>() << <span class="str">" "</span>; <span class="cm">// prints: 5 3 2 1</span>
+        pq.<span class="fn">pop</span>();
+    }
+
+    <span class="cm">// Min-heap (for Dijkstra's etc.)</span>
+    priority_queue&lt;<span class="kw">int</span>, vector&lt;<span class="kw">int</span>&gt;, greater&lt;<span class="kw">int</span>&gt;&gt; minPQ;
+    minPQ.<span class="fn">push</span>(<span class="num">3</span>); minPQ.<span class="fn">push</span>(<span class="num">1</span>); minPQ.<span class="fn">push</span>(<span class="num">5</span>);
+    <span class="cm">// top() gives minimum: 1, 3, 5</span>
+}
+
+<span class="cm">// Job Scheduling with Priority Queue</span>
+<span class="kw">struct</span> <span class="tp">Job</span> {
+    <span class="kw">int</span> id, priority, burst;
+    <span class="kw">bool operator</span>&lt;(<span class="kw">const</span> Job& other) <span class="kw">const</span> {
+        <span class="kw">return</span> priority < other.priority; <span class="cm">// max-priority first</span>
+    }
+};
+
+<span class="kw">void</span> <span class="fn">jobScheduling</span>(vector&lt;Job&gt;& jobs) {
+    priority_queue&lt;Job&gt; pq;
+    <span class="kw">for</span>(<span class="kw">auto</span>& j : jobs) pq.<span class="fn">push</span>(j);
+    <span class="kw">while</span>(!pq.<span class="fn">empty</span>()) {
+        <span class="tp">Job</span> j = pq.<span class="fn">top</span>(); pq.<span class="fn">pop</span>();
+        cout << <span class="str">"Running Job "</span> << j.id << endl;
+    }
+}</pre>
+  </div>
+
+  <div class="highlight-box">
+    <h4>📋 Deque (Double-Ended Queue)</h4>
+    <ul>
+      <li>insertFront(x) — insert at front</li>
+      <li>insertRear(x) — insert at rear</li>
+      <li>deleteFront() — remove from front</li>
+      <li>deleteRear() — remove from rear</li>
+      <li>Use case: Sliding window problems, palindrome check, undo/redo</li>
+    </ul>
+  </div>
+</section>
+
+</div> <!-- end #main -->
+
+<script>
+// ============================================================
+// NAVIGATION
+// ============================================================
+let currentSection = 'intro';
+
+function showSection(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.querySelectorAll('.snav-btn').forEach(n => n.classList.remove('active'));
+
+  document.getElementById(id)?.classList.add('active');
+  document.querySelectorAll(`[onclick="showSection('${id}')"]`).forEach(el => el.classList.add('active'));
+
+  currentSection = id;
+  if(id === 'search') initSearchViz();
+  if(id === 'sorting') initSortViz();
+  if(id === 'stacks') renderStackViz();
+  if(id === 'queues') renderQueueViz();
+}
+
+function switchTab(btn, containerId, contentId) {
+  const container = document.getElementById(containerId);
+  container.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+  btn.parentElement.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById(contentId).classList.add('active');
+  btn.classList.add('active');
+}
+
+function copyCode(btn) {
+  const code = btn.closest('.code-block').querySelector('pre').textContent;
+  navigator.clipboard.writeText(code).then(() => {
+    btn.textContent = '✓ copied!';
+    setTimeout(() => btn.textContent = 'copy', 2000);
+  });
+}
+
+// ============================================================
+// ARRAY VISUALIZER
+// ============================================================
+let arrData = [12, 34, 56, 78, 90];
+
+function renderArray(highlight = -1, type = 'highlight') {
+  const viz = document.getElementById('array-viz');
+  viz.innerHTML = arrData.map((v, i) => `
+    <div class="array-cell ${i === highlight ? type : ''}">
+      ${v}<span class="idx">${i}</span>
+    </div>`).join('');
+}
+
+function arrayInsert() {
+  const val = parseInt(document.getElementById('arr-val').value);
+  const idx = parseInt(document.getElementById('arr-idx').value);
+  if(idx < 0 || idx > arrData.length) { setMsg('array-msg', '❌ Invalid index'); return; }
+  arrData.splice(idx, 0, val);
+  renderArray(idx, 'highlight');
+  setMsg('array-msg', `✅ Inserted ${val} at index ${idx}. Array size: ${arrData.length}`);
+}
+
+function arrayDelete() {
+  const idx = parseInt(document.getElementById('arr-idx').value);
+  if(idx < 0 || idx >= arrData.length) { setMsg('array-msg', '❌ Invalid index'); return; }
+  const val = arrData.splice(idx, 1)[0];
+  renderArray();
+  setMsg('array-msg', `🗑 Deleted ${val} from index ${idx}. Array size: ${arrData.length}`);
+}
+
+function arrayAccess() {
+  const idx = parseInt(document.getElementById('arr-idx').value);
+  if(idx < 0 || idx >= arrData.length) { setMsg('array-msg', '❌ Index out of bounds'); return; }
+  renderArray(idx, 'highlight');
+  setMsg('array-msg', `🔍 A[${idx}] = ${arrData[idx]} (O(1) direct access)`);
+}
+
+function arrayReset() {
+  arrData = [12, 34, 56, 78, 90];
+  renderArray();
+  setMsg('array-msg', '↺ Array reset to initial state');
+}
+
+// ============================================================
+// SEARCH VISUALIZER
+// ============================================================
+let searchArr = [2, 5, 8, 12, 16, 23, 38, 56, 72, 91];
+let searchRunning = false;
+
+function initSearchViz() {
+  renderSearchArr();
+}
+
+function renderSearchArr(highlights = {}) {
+  const viz = document.getElementById('search-viz');
+  viz.innerHTML = searchArr.map((v, i) => {
+    let cls = 'array-cell';
+    if(highlights[i] === 'found') cls += ' sorted';
+    else if(highlights[i] === 'current') cls += ' highlight';
+    else if(highlights[i] === 'range') cls += ' comparing';
+    else if(highlights[i] === 'mid') cls += ' pivot';
+    return `<div class="${cls}">${v}<span class="idx">${i}</span></div>`;
+  }).join('');
+}
+
+function delay(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+function getSearchSpeed() {
+  const s = parseInt(document.getElementById('search-speed').value);
+  return Math.max(100, 1100 - s * 100);
+}
+
+async function runLinearSearch() {
+  if(searchRunning) return;
+  searchRunning = true;
+  const target = parseInt(document.getElementById('search-target').value);
+  setMsg('search-msg', `🔍 Linear Search: looking for ${target}...`);
+
+  for(let i = 0; i < searchArr.length; i++) {
+    renderSearchArr({[i]: 'current'});
+    await delay(getSearchSpeed());
+    if(searchArr[i] === target) {
+      renderSearchArr({[i]: 'found'});
+      setMsg('search-msg', `✅ Found ${target} at index ${i} after ${i+1} comparison(s)!`);
+      searchRunning = false; return;
+    }
+  }
+  renderSearchArr();
+  setMsg('search-msg', `❌ ${target} not found after ${searchArr.length} comparisons.`);
+  searchRunning = false;
+}
+
+async function runBinarySearch() {
+  if(searchRunning) return;
+  searchRunning = true;
+  const target = parseInt(document.getElementById('search-target').value);
+  setMsg('search-msg', `⚡ Binary Search: looking for ${target}...`);
+  let low = 0, high = searchArr.length - 1, steps = 0;
+
+  while(low <= high) {
+    steps++;
+    const mid = Math.floor((low + high) / 2);
+    const h = {};
+    for(let i = low; i <= high; i++) h[i] = 'range';
+    h[mid] = 'mid';
+    renderSearchArr(h);
+    setMsg('search-msg', `Step ${steps}: low=${low}, mid=${mid}(=${searchArr[mid]}), high=${high} | Target=${target}`);
+    await delay(getSearchSpeed());
+
+    if(searchArr[mid] === target) {
+      renderSearchArr({[mid]: 'found'});
+      setMsg('search-msg', `✅ Found ${target} at index ${mid} in ${steps} step(s)! O(log n)`);
+      searchRunning = false; return;
+    } else if(searchArr[mid] < target) low = mid + 1;
+    else high = mid - 1;
+  }
+  renderSearchArr();
+  setMsg('search-msg', `❌ ${target} not found after ${steps} step(s).`);
+  searchRunning = false;
+}
+
+function resetSearch() {
+  searchRunning = false;
+  renderSearchArr();
+  setMsg('search-msg', 'Enter a target value and choose a search algorithm.');
+}
+
+// ============================================================
+// SORT VISUALIZER
+// ============================================================
+let sortArr = [];
+let sortRunning = false;
+
+function getSortSpeed() {
+  const s = parseInt(document.getElementById('sort-speed').value);
+  return Math.max(50, 1100 - s * 100);
+}
+
+function initSortViz() {
+  sortArr = Array.from({length: 10}, () => Math.floor(Math.random() * 90) + 10);
+  renderSortArr();
+  setMsg('sort-msg', 'Click a sort algorithm to watch it work step by step!');
+}
+
+function renderSortArr(highlights = {}) {
+  const viz = document.getElementById('sort-viz');
+  const maxVal = Math.max(...sortArr);
+  viz.innerHTML = sortArr.map((v, i) => {
+    let cls = 'array-cell';
+    if(highlights[i] === 'sorted') cls += ' sorted';
+    else if(highlights[i] === 'comparing') cls += ' comparing';
+    else if(highlights[i] === 'pivot') cls += ' pivot';
+    else if(highlights[i] === 'highlight') cls += ' highlight';
+    const h = Math.floor((v / maxVal) * 100);
+    return `<div class="${cls}" style="height:${h}%;">${v}<span class="idx">${i}</span></div>`;
+  }).join('');
+}
+
+async function runSort(type) {
+  if(sortRunning) return;
+  sortRunning = true;
+  const arr = [...sortArr];
+
+  if(type === 'bubble') await bubbleSortAnim(arr);
+  else if(type === 'insertion') await insertionSortAnim(arr);
+  else if(type === 'selection') await selectionSortAnim(arr);
+  else if(type === 'quick') await quickSortAnim(arr, 0, arr.length-1);
+
+  sortArr = arr;
+  const allSorted = {};
+  arr.forEach((_, i) => allSorted[i] = 'sorted');
+  renderSortArr(allSorted);
+  setMsg('sort-msg', `✅ ${type.charAt(0).toUpperCase()+type.slice(1)} Sort complete!`);
+  sortRunning = false;
+}
+
+async function bubbleSortAnim(arr) {
+  const n = arr.length;
+  for(let i = 0; i < n-1; i++) {
+    for(let j = 0; j < n-i-1; j++) {
+      const h = {[j]:'comparing', [j+1]:'comparing'};
+      for(let k = n-i; k < n; k++) h[k] = 'sorted';
+      renderSortArr(h);
+      setMsg('sort-msg', `Comparing arr[${j}]=${arr[j]} with arr[${j+1}]=${arr[j+1]}`);
+      await delay(getSortSpeed());
+      if(arr[j] > arr[j+1]) {
+        [arr[j], arr[j+1]] = [arr[j+1], arr[j]];
+        sortArr = [...arr];
+      }
+    }
+  }
+}
+
+async function insertionSortAnim(arr) {
+  const n = arr.length;
+  for(let i = 1; i < n; i++) {
+    let key = arr[i], j = i-1;
+    renderSortArr({[i]:'highlight'});
+    setMsg('sort-msg', `Inserting key=${key} into sorted portion [0..${i-1}]`);
+    await delay(getSortSpeed());
+    while(j >= 0 && arr[j] > key) {
+      arr[j+1] = arr[j]; j--;
+      sortArr = [...arr]; renderSortArr({[j+1]:'comparing'});
+      await delay(getSortSpeed()/2);
+    }
+    arr[j+1] = key; sortArr = [...arr];
+  }
+}
+
+async function selectionSortAnim(arr) {
+  const n = arr.length;
+  for(let i = 0; i < n-1; i++) {
+    let minIdx = i;
+    for(let j = i+1; j < n; j++) {
+      renderSortArr({[minIdx]:'highlight', [j]:'comparing'});
+      setMsg('sort-msg', `Finding min in [${i}..${n-1}]: current min at ${minIdx}=${arr[minIdx]}`);
+      await delay(getSortSpeed()/2);
+      if(arr[j] < arr[minIdx]) minIdx = j;
+    }
+    [arr[i], arr[minIdx]] = [arr[minIdx], arr[i]];
+    sortArr = [...arr];
+  }
+}
+
+async function quickSortAnim(arr, low, high) {
+  if(low < high) {
+    const pi = await partitionAnim(arr, low, high);
+    await quickSortAnim(arr, low, pi-1);
+    await quickSortAnim(arr, pi+1, high);
+  }
+}
+
+async function partitionAnim(arr, low, high) {
+  const pivot = arr[high];
+  let i = low - 1;
+  for(let j = low; j < high; j++) {
+    renderSortArr({[high]:'pivot', [j]:'comparing'});
+    setMsg('sort-msg', `Pivot=${pivot}, comparing arr[${j}]=${arr[j]}`);
+    await delay(getSortSpeed());
+    if(arr[j] <= pivot) {
+      i++;
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+      sortArr = [...arr];
+    }
+  }
+  [arr[i+1], arr[high]] = [arr[high], arr[i+1]];
+  sortArr = [...arr];
+  return i+1;
+}
+
+function resetSort() { sortRunning = false; initSortViz(); }
+
+// ============================================================
+// STACK VISUALIZER
+// ============================================================
+let stack = [];
+const MAX_STACK = 6;
+
+function renderStackViz() {
+  const viz = document.getElementById('stack-viz');
+  viz.innerHTML = '<div class="stack-base"></div>';
+  if(stack.length === 0) {
+    viz.innerHTML += '<span class="stack-empty">Empty stack</span>';
+  } else {
+    stack.forEach((v, i) => {
+      const isTop = i === stack.length - 1;
+      const cell = document.createElement('div');
+      cell.className = 'stack-cell' + (isTop ? ' top' : '');
+      cell.textContent = v;
+      if(isTop) cell.innerHTML += '<span class="top-label">← TOP</span>';
+      viz.appendChild(cell);
+    });
+  }
+  document.getElementById('stack-size').textContent = stack.length;
+  document.getElementById('stack-top-val').textContent = stack.length ? stack[stack.length-1] : '-';
+  document.getElementById('stack-empty-flag').textContent = stack.length === 0 ? 'Yes' : 'No';
+}
+
+function stackPush() {
+  const val = parseInt(document.getElementById('stack-val').value);
+  if(isNaN(val)) return;
+  if(stack.length >= MAX_STACK) { setMsg('stack-msg', '❌ Stack Overflow! Max size reached.'); return; }
+  stack.push(val);
+  renderStackViz();
+  setMsg('stack-msg', `✅ Pushed ${val} to top. Stack size: ${stack.length}`);
+}
+
+function stackPop() {
+  if(stack.length === 0) { setMsg('stack-msg', '❌ Stack Underflow! Cannot pop from empty stack.'); return; }
+  const val = stack.pop();
+  renderStackViz();
+  setMsg('stack-msg', `🔺 Popped ${val} from top. Stack size: ${stack.length}`);
+}
+
+function stackPeek() {
+  if(stack.length === 0) { setMsg('stack-msg', '❌ Stack is empty. Nothing to peek.'); return; }
+  setMsg('stack-msg', `👀 Top element is: ${stack[stack.length-1]} (stack unchanged)`);
+  renderStackViz();
+}
+
+function resetStack() { stack = []; renderStackViz(); setMsg('stack-msg', '↺ Stack reset. Ready to use!'); }
+
+// ============================================================
+// QUEUE VISUALIZER
+// ============================================================
+let queue = [];
+
+function renderQueueViz() {
+  const viz = document.getElementById('queue-viz');
+  const labels = document.getElementById('queue-labels');
+  if(queue.length === 0) {
+    viz.innerHTML = '<span style="color:var(--text2);font-size:13px;font-style:italic;">Empty queue</span>';
+    labels.innerHTML = '';
+  } else {
+    viz.innerHTML = queue.map((v, i) => {
+      let cls = 'queue-cell';
+      if(i === 0) cls += ' front';
+      if(i === queue.length-1 && queue.length > 1) cls += ' rear';
+      return `<div class="${cls}">${v}</div>`;
+    }).join('');
+    labels.innerHTML = queue.map((_, i) => {
+      let lbl = i === 0 ? 'FRONT' : (i === queue.length-1 ? 'REAR' : '');
+      return `<div class="q-label" style="color:${i===0?'var(--accent3)':i===queue.length-1?'var(--accent4)':'transparent'}">${lbl}</div>`;
+    }).join('');
+  }
+  document.getElementById('q-front').textContent = queue.length ? queue[0] : '-';
+  document.getElementById('q-rear').textContent = queue.length ? queue[queue.length-1] : '-';
+  document.getElementById('q-size').textContent = queue.length;
+}
+
+function queueEnqueue() {
+  const val = parseInt(document.getElementById('queue-val').value);
+  if(isNaN(val)) return;
+  if(queue.length >= 8) { setMsg('queue-msg', '❌ Queue Full!'); return; }
+  queue.push(val);
+  renderQueueViz();
+  setMsg('queue-msg', `✅ Enqueued ${val} at REAR. Size: ${queue.length}`);
+}
+
+function queueDequeue() {
+  if(queue.length === 0) { setMsg('queue-msg', '❌ Queue Empty! Cannot dequeue.'); return; }
+  const val = queue.shift();
+  renderQueueViz();
+  setMsg('queue-msg', `🔺 Dequeued ${val} from FRONT. Size: ${queue.length}`);
+}
+
+function resetQueue() { queue = []; renderQueueViz(); setMsg('queue-msg', 'Queue reset. Ready to use!'); }
+
+// ============================================================
+// DECIMAL TO BINARY
+// ============================================================
+function decToBin() {
+  const n = parseInt(document.getElementById('dec-input').value);
+  if(isNaN(n) || n < 0) return;
+  document.getElementById('bin-dec').textContent = n;
+
+  const steps = [];
+  const stk = [];
+  let tmp = n;
+  if(tmp === 0) { stk.push(0); steps.push({q: 0, r: 0}); }
+  while(tmp > 0) {
+    const r = tmp % 2;
+    stk.push(r);
+    steps.push({q: Math.floor(tmp/2), r});
+    tmp = Math.floor(tmp/2);
+  }
+
+  const binary = stk.reverse().join('');
+  document.getElementById('bin-result').textContent = binary;
+
+  const stepEl = document.getElementById('bin-steps');
+  stepEl.innerHTML = steps.map((s, i) => `
+    <div class="step-item done">Step ${i+1}: ${steps[i] === steps[0] ? n : steps[i-1]?.q ?? n} ÷ 2 = ${s.q}, remainder → Push(${s.r})</div>
+  `).join('') + `<div class="step-item done">Pop all → ${binary}</div>`;
+}
+
+// ============================================================
+// INFIX TO POSTFIX (simple visual)
+// ============================================================
+function infixToPostfix() {
+  const expr = document.getElementById('expr-input').value.trim();
+  document.getElementById('infix-display').textContent = expr;
+
+  const prec = {'^':3,'*':2,'/':2,'+':1,'-':1,'(':0};
+  const stk = []; let result = '';
+  const steps = [];
+
+  for(const c of expr) {
+    if(/[a-zA-Z0-9]/.test(c)) {
+      result += c;
+      steps.push(`Read '${c}' → output: ${result}`);
+    } else if(c === '(') {
+      stk.push(c);
+      steps.push(`Read '(' → push: [${[...stk].join(',')}]`);
+    } else if(c === ')') {
+      while(stk.length && stk[stk.length-1] !== '(') {
+        result += stk.pop();
+      }
+      stk.pop();
+      steps.push(`Read ')' → pop until '(': output: ${result}`);
+    } else {
+      while(stk.length && prec[stk[stk.length-1]] >= prec[c]) {
+        result += stk.pop();
+      }
+      stk.push(c);
+      steps.push(`Read '${c}' → push: [${[...stk].join(',')}], output: ${result}`);
+    }
+  }
+  while(stk.length) {
+    result += stk.pop();
+  }
+  steps.push(`End → pop remaining: ${result}`);
+
+  document.getElementById('postfix-display').textContent = result;
+  document.getElementById('expr-steps').innerHTML = steps.map(s =>
+    `<div class="step-item done">${s}</div>`).join('');
+}
+
+// ============================================================
+// HELPER
+// ============================================================
+function setMsg(id, msg) {
+  const el = document.getElementById(id);
+  if(el) el.textContent = msg;
+}
+
+// ============================================================
+// INIT
+// ============================================================
+renderArray();
+initSearchViz();
+initSortViz();
+</script>
+</body>
+</html>
